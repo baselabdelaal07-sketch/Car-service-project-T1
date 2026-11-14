@@ -140,6 +140,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="ArrayStack.h" />
+    <ClInclude Include="Bay.h" />
+    <ClInclude Include="Car.h" />
     <ClInclude Include="LinkedList.h" />
     <ClInclude Include="LinkedQueue.h" />
     <ClInclude Include="Node.h" />
@@ -148,6 +150,11 @@
     <ClInclude Include="QueueADT.h" />
     <ClInclude Include="StackADT.h" />
     <ClInclude Include="Wait.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Bay.cpp" />
+    <ClCompile Include="Car.cpp" />
+    <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
