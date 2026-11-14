@@ -150,6 +150,9 @@
     <ClInclude Include="QueueADT.h" />
     <ClInclude Include="StackADT.h" />
     <ClInclude Include="Wait.h" />
+    <ClInclude Include="WAIT_EU.h" />
+    <ClInclude Include="WAIT_MU.h" />
+    <ClInclude Include="WAIT_WU.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Bay.cpp" />
