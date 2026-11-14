@@ -45,6 +45,18 @@
     <ClInclude Include="Bay.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Wait.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="WAIT_EU.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="WAIT_WU.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="WAIT_MU.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp">
