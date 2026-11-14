@@ -41,7 +41,7 @@ Single Node Case:
 #ifndef LINKED_QUEUE_
 #define LINKED_QUEUE_
 
-
+#include <iostream>			///zeyad
 #include "Node.h"
 #include "QueueADT.h"
 
@@ -51,13 +51,19 @@ class LinkedQueue :public QueueADT<T>
 protected:  //in case you need to inherit for the project
 	Node<T>* backPtr;
 	Node<T>* frontPtr;
+	int count;
 public:
 	LinkedQueue();
 	bool isEmpty() const;
 	bool enqueue(const T& newEntry);
 	bool dequeue(T& frntEntry);
 	bool peek(T& frntEntry)  const;
+
+	int GetCount() const;			////zeyad
+	void print() const;
+
 	~LinkedQueue();
+	
 };
 /////////////////////////////////////////////////////////////////////////////////////////
 
@@ -72,7 +78,7 @@ LinkedQueue<T>::LinkedQueue()
 {
 	backPtr = nullptr;
 	frontPtr = nullptr;
-
+	count = 0;		////zeyad
 }
 /////////////////////////////////////////////////////////////////////////////////////////
 
@@ -109,6 +115,9 @@ bool LinkedQueue<T>::enqueue(const T& newEntry)
 		backPtr->setNext(newNodePtr); // The queue was not empty
 
 	backPtr = newNodePtr; // New node is the last node now
+
+	count++; /////zeyad
+
 	return true;
 } // end enqueue
 
@@ -139,6 +148,8 @@ bool LinkedQueue<T>::dequeue(T& frntEntry)
 	// Free memory reserved for the dequeued node
 	delete nodeToDeletePtr;
 
+	count--;			////zeyad
+
 	return true;
 }
 
@@ -165,6 +176,37 @@ bool LinkedQueue<T>::peek(T& frntEntry) const
 
 }
 ///////////////////////////////////////////////////////////////////////////////////
+
+
+template <typename T>
+int LinkedQueue<T>::GetCount()const
+{
+	return count;						/////zeyad
+
+
+}
+
+
+template <typename T>
+void LinkedQueue<T>::print() const
+{
+	Node<T>* current = frontPtr;
+	while (current != nullptr)
+	{
+		std::cout << current->getItem();
+		if (current->getNext() != nullptr)
+		{
+			std::cout << ", ";						/////zeyad
+		}
+
+
+		current = current->getNext();
+	}
+
+
+}
+
+
 
 template <typename T>
 LinkedQueue<T>::~LinkedQueue()

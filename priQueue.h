@@ -1,6 +1,6 @@
 #pragma once
 #include "priNode.h"
-
+#include <iostream>             ////zeyad
 
 //This class impelements the priority queue as a sorted list (Linked List)
 //The item with highest priority is at the front of the queue
@@ -9,8 +9,9 @@ class priQueue
 {
 protected:  //in case you need to inherit for the project
     priNode<T>* head;
+    int count;              ////zeyad
 public:
-    priQueue() : head(nullptr) {}
+    priQueue() : head(nullptr), count(0) {}
 
     ~priQueue() {
         T tmp;
@@ -26,6 +27,7 @@ public:
 
             newNode->setNext(head);
             head = newNode;
+            count++;                ////zeyad
             return;
         }
 
@@ -35,6 +37,7 @@ public:
         }
         newNode->setNext(current->getNext());
         current->setNext(newNode);
+        count++;                ///zeyad
     }
 
     bool dequeue(T& topEntry, int& pri) {
@@ -45,6 +48,8 @@ public:
         priNode<T>* temp = head;
         head = head->getNext();
         delete temp;
+
+        count--:                        ////zeyad
         return true;
     }
 
@@ -59,4 +64,24 @@ public:
     bool isEmpty() const {
         return head == nullptr;
     }
+
+    int GetCount() const                ////zeyad
+    {
+        return count;
+    }
+
+    void print() const
+    {
+        priNode<T>* current = head;
+        int pri;
+        while (current != nullptr)
+        {
+            std::cout << current->getItem(pri);
+            if (current->getNext() != nullptr)
+                std::cout << ", ";
+            current = current->getNext();               /////zeyad
+        }
+    }
+
+
 };
