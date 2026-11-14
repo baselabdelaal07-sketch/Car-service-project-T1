@@ -149,6 +149,7 @@
     <ClInclude Include="priQueue.h" />
     <ClInclude Include="QueueADT.h" />
     <ClInclude Include="StackADT.h" />
+    <ClInclude Include="test.h" />
     <ClInclude Include="Wait.h" />
     <ClInclude Include="WAIT_EU.h" />
     <ClInclude Include="WAIT_MU.h" />
