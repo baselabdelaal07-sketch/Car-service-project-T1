@@ -1,7 +1,6 @@
 #pragma once
 #include "LinkedQueue.h"
-#include"Car"
-
+#include"Car.h"
 
 
 class WAIT_WU : public LinkedQueue<Car*>
