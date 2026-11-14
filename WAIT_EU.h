@@ -1,6 +1,6 @@
 #pragma once
 #include "LinkedQueue.h"
-
+#include"Car"
 
 class WAIT_EU : public LinkedQueue<Car*>
 {
