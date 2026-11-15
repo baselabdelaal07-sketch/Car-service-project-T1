@@ -18,7 +18,7 @@ private:
 	SeqType ST;//ST is a variable for the sequence type for the car
 	Bay* bay;
 
-private:
+public:
 	Car();
 	int getCID();
 	int getPT();
