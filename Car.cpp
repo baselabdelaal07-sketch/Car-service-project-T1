@@ -57,5 +57,9 @@ void Car::setBay(Bay*b){
 
 }
 void Car::print() {
-
+	cout << '[ ' << CID << ',' << VT << ',' << PT<<' ]' << endl;
+}
+ostream& operator<<(ostream& out, Car* c) {
+	c->print();      
+	return out;     
 }

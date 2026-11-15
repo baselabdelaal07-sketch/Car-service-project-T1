@@ -1,6 +1,7 @@
 #pragma once
 #include"Bay.h"
 #include<iostream>
+using namespace std;
 enum class CarStatus {
 	IDLE,ERLY,LATE,REDY,DIAG,WAIT,SERV,CNCL,FNSH
 };
@@ -18,7 +19,7 @@ private:
 	SeqType ST;//ST is a variable for the sequence type for the car
 	Bay* bay;
 
-private:
+public:
 	Car();
 	int getCID();
 	int getPT();
@@ -39,7 +40,7 @@ private:
 	void setFT(int ft);
 	void setCT(int ct);
 	void setBay(Bay*b);
-	friend ostream& operator<<(ostream& out, car* c);
 	void print();
 
 };
+ostream& operator<<(ostream& out, Car* c);
