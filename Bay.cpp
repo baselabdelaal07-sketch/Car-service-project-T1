@@ -57,3 +57,10 @@ void WashBay::print() const
 {
     std::cout << getPrefix() << ID << "(" << getRemainingCapacity() << " left)";
 }
+
+
+std::ostream& operator<<(std::ostream& out, const Bay* b)
+{
+    b->print();
+    return out;
+}                       ////zeyad

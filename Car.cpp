@@ -66,9 +66,38 @@ void Car::setCancelTimeStep(int ct){
 void Car::setBay(Bay*b){
 	bay = b;
 }
-void Car::print() {
-	cout << '[ ' << CID << ',' << VT << ',' << PT<<' ]' << endl;
+//void Car::print() {
+//	cout << '[ ' << CID << ',' << VT << ',' << PT<<' ]' << endl;
+//}
+
+void Car::print()
+{
+	cout << "[C" << CID << ", ";
+	switch (status)
+	{
+	case CarStatus::DIAG:
+	case CarStatus::SERV:
+		cout << bay->getPrefix() << bay->getID();
+		break;
+	case CarStatus::WAIT:
+		cout << nextServTime;
+		break;
+	case CarStatus::CNCL:
+		cout << CT;
+		break;
+	case CarStatus::FNSH:
+		cout << FT;
+		break;
+	default:                        // IDLE, ERLY, LATE, REDY
+		cout << VT << ", " << PT;
+		break;
+	}
+	cout << "]";
 }
+
+
+
+
 ostream& operator<<(ostream& out, Car* c) {
 	c->print();      
 	return out;     

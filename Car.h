@@ -15,6 +15,9 @@ private:
 	int VT;//arrival time 
 	int DD;
 	int TW, TS, FT, CT;// total wait, total service time, finsih time, cancel time
+	int nextServTime;		///zeyad
+
+	
 	CarStatus status;
 	SeqType ST;//ST is a variable for the sequence type for the car
 	Bay* bay;
@@ -40,6 +43,10 @@ public:
 	void setCancelTimeStep(int ct);
 	void setBay(Bay*b);
 	void print();
+
+
+	int getNextServTime();
+	void setNextServTime(int t);			////zeyad
 
 };
 ostream& operator<<(ostream& out, Car* c);

@@ -60,7 +60,7 @@ public:
 	bool peek(T& frntEntry)  const;
 
 	int GetCount() const;			////zeyad
-	void print() const;
+	void print(int limit = -1) const;
 
 	~LinkedQueue();
 	
@@ -188,20 +188,22 @@ int LinkedQueue<T>::GetCount()const
 
 
 template <typename T>
-void LinkedQueue<T>::print() const
+void LinkedQueue<T>::print(int limit) const
 {
 	Node<T>* current = frontPtr;
-	while (current != nullptr)
+	int printed = 0;
+	while (current != nullptr && (limit < 0 || printed < limit))
 	{
+		if (printed > 0)
+			std::cout << ", ";
 		std::cout << current->getItem();
+		current = current->getNext();
+		printed++;
+	}
 		if (current->getNext() != nullptr)
 		{
-			std::cout << ", ";						/////zeyad
+			std::cout << ".... ";						/////zeyad
 		}
-
-
-		current = current->getNext();
-	}
 
 
 }

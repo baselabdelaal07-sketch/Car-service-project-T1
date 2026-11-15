@@ -57,7 +57,7 @@ public:
 		return true;
 	}  // end peek
 
-	int GetCount() continue
+	int GetCount() const
 	{
 		return top + 1;				////zeyad
 	}

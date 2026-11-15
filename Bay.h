@@ -28,7 +28,14 @@ public:
 
     virtual char getPrefix() const = 0;   // 'D', 'M', 'E', 'W'
     virtual void print() const;           // prints e.g. D4
+
+
+
 };
+
+std::ostream& operator<<(std::ostream& out, const Bay* b);          ///zeyad
+
+
 class DiagBay : public Bay
 {
 public:
