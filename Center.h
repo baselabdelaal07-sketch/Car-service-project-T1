@@ -21,6 +21,9 @@ private:
 
 	priQueue<Car*> DIAG_cars;                /////zeyad
 	LinkedQueue<DiagBay*> Free_D_List;
+	int totalCars = 0;
+	void CreateBays(int nDiag, int nMech, int nElec, int nWash, int wbCap);
+
 
 
 	WAIT_MU WAIT_MU_list;
@@ -53,6 +56,10 @@ public:
 	void stepArrival(int timeStep);
 	void assignCarsToBays(int timestep);
 	void releaseFinishedCars(int timestep);
+
+	void RandomSimulation();			////zeyad
+	bool AllDone() const;
+
 
 
 

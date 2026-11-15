@@ -1,3 +1,4 @@
+#include "UI.h"
 #include "Center.h"
 #include"Car.h"
 #include"IDLE_LIST.h"
@@ -14,6 +15,7 @@ void Center::GenerateCars(int n) {
         c->setCarStatus(CarStatus::IDLE);
         idle.enqueue(c);
     }
+    totalCars += n;
 }
 void Center::DistributeFromIdle() {
   
@@ -66,7 +68,7 @@ void Center::MoveLateToRedy() {
     }
 }
 void Center::stepArrival(int timeStep) {
-    GenerateCars(1000);
+
     DistributeFromIdle();
     MoveErlyToRedy();
     CancelFromLate(timeStep);
@@ -83,7 +85,7 @@ bool Center::peekServiceFinishTime(int& t)
     if (InServ_cars.isEmpty())
         return false;
 
-    Car* c;
+    Car* c;   
     int pri;
     InServ_cars.peek(c, pri);
     t = -pri;
@@ -206,5 +208,51 @@ void Center::releaseFinishedCars(int timestep)
             else if (r <= 90) WAIT_EU_list.enqueue(c);
             else              WAIT_WU_list.enqueue(c);
         }
+    }
+}
+
+
+
+
+
+
+
+
+
+bool Center::AllDone() const                ///zeyad
+{
+    return cancelled.GetCount() + Finished_cars.GetCount() == totalCars;
+}
+
+void Center::CreateBays(int nDiag, int nMech, int nElec, int nWash, int wbCap)
+{
+    for (int i = 1; i <= nDiag; i++)
+        Free_D_List.enqueue(new DiagBay(i));
+    for (int i = 1; i <= nMech; i++)
+        Free_MU_List.enqueue(new MechBay(i));
+    for (int i = 1; i <= nElec; i++)
+        Free_EU_List.enqueue(new ElecBay(i));
+    for (int i = 1; i <= nWash; i++)
+        Free_WU_List.enqueue(new WashBay(i, wbCap));
+}
+
+void Center::RandomSimulation()
+{
+    UI ui;
+
+    GenerateCars(1000); 
+    CreateBays(3, 5, 4, 2, 3);
+
+    int timestep = 1;
+    while (!AllDone())
+    {
+        stepDiagnosis(timestep);
+        stepArrival(timestep);               
+        assignCarsToBays(timestep); 
+        releaseFinishedCars(timestep);
+
+        ui.PrintAll(timestep, *this);
+        ui.WaitForNextStep();
+        timestep++;
     }
 }
