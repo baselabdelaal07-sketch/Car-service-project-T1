@@ -142,7 +142,11 @@
     <ClInclude Include="ArrayStack.h" />
     <ClInclude Include="Bay.h" />
     <ClInclude Include="Car.h" />
+    <ClInclude Include="Center.h" />
+    <ClInclude Include="ERLY_LIST.h" />
+    <ClInclude Include="IDLE_LIST.h" />
     <ClInclude Include="InServ_cars.h" />
+    <ClInclude Include="LATE_LIST.h" />
     <ClInclude Include="LinkedList.h" />
     <ClInclude Include="LinkedQueue.h" />
     <ClInclude Include="Node.h" />
@@ -159,7 +163,6 @@
   <ItemGroup>
     <ClCompile Include="Bay.cpp" />
     <ClCompile Include="Car.cpp" />
-    <ClCompile Include="InServ_cars.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="UI.cpp" />
   </ItemGroup>

@@ -49,7 +49,7 @@ public:
         head = head->getNext();
         delete temp;
 
-        count--:                        ////zeyad
+        count--;                        ////zeyad
         return true;
     }
 

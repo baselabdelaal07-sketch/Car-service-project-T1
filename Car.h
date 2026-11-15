@@ -1,11 +1,12 @@
 #pragma once
 #include"Bay.h"
 #include<iostream>
+using namespace std;
 enum class CarStatus {
 	IDLE,ERLY,LATE,REDY,DIAG,WAIT,SERV,CNCL,FNSH
 };
 enum class SeqType {
-	SS,FS
+	NoSeqSet,SS,FS
 };
 class Car {
 private:
@@ -19,7 +20,7 @@ private:
 	Bay* bay;
 
 public:
-	Car();
+	Car(int id, int vt, int pt, int dd);
 	int getCID();
 	int getPT();
 	int getVT();
@@ -28,18 +29,17 @@ public:
 	int getTS();
 	int getFT();
 	int getCT();
-	int getDD();
 	Bay* getBay();
 	CarStatus getCarStatus();
 	SeqType getSeqType();
 	void setCarStatus(CarStatus cs);
 	void setSeqType(SeqType seqtype);
-	void setTW(int tw);
-	void setTS(int ts);
-	void setFT(int ft);
-	void setCT(int ct);
+	void setTotalWaitTime (int tw);
+	void setTotalServiceTime(int ts);
+	void setFinishTimeStep(int ft);
+	void setCancelTimeStep(int ct);
 	void setBay(Bay*b);
-	friend ostream& operator<<(ostream& out, car* c);
 	void print();
 
 };
+ostream& operator<<(ostream& out, Car* c);
