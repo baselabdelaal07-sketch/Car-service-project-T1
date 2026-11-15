@@ -1,6 +1,16 @@
 #include "Car.h"
-Car::Car() {
-
+Car::Car(int id,int vt, int pt, int dd) {
+	CID = id;
+	VT = vt;
+	PT = pt;
+	DD = dd;
+	bay = nullptr;
+	CT = -1; //no cancel time or finish time at start
+	TW = 0;
+	TS = 0;
+	ST = SeqType::NoSeqSet;
+	FT = -1;
+	status = CarStatus::IDLE;
 }
 int Car::getCID() {
 	return CID;
@@ -41,20 +51,20 @@ void Car::setCarStatus(CarStatus cs){
 void Car::setSeqType(SeqType st){
 	ST = st;
 }
-void Car::setTW(int tw){
+void Car::setTotalWaitTime(int tw){
 	TW += tw;
 }
-void Car::setTS(int ts){
+void Car::setTotalServiceTime(int ts){
 
 }
-void Car::setFT(int ft){
-
+void Car::setFinishTimeStep(int ft){
+	FT = ft;
 }
-void Car::setCT(int ct){
-
+void Car::setCancelTimeStep(int ct){
+	CT = ct;
 }
 void Car::setBay(Bay*b){
-
+	bay = b;
 }
 void Car::print() {
 	cout << '[ ' << CID << ',' << VT << ',' << PT<<' ]' << endl;
