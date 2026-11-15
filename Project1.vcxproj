@@ -155,7 +155,6 @@
     <ClInclude Include="QueueADT.h" />
     <ClInclude Include="StackADT.h" />
     <ClInclude Include="test.h" />
-    <ClInclude Include="Wait.h" />
     <ClInclude Include="WAIT_EU.h" />
     <ClInclude Include="WAIT_MU.h" />
     <ClInclude Include="WAIT_WU.h" />
@@ -163,11 +162,6 @@
   <ItemGroup>
     <ClCompile Include="Bay.cpp" />
     <ClCompile Include="Car.cpp" />
-    <ClCompile Include="Center.cpp" />
-    <ClCompile Include="ERLY_LIST.cpp" />
-    <ClCompile Include="IDLE_LIST.cpp" />
-    <ClCompile Include="InServ_cars.cpp" />
-    <ClCompile Include="LATE_LIST.cpp" />
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
