@@ -6,26 +6,29 @@
 class WAIT_WU : public LinkedQueue<Car*>
 {
     int totalTime;
+    int serviceTime = 4;   //  fixed for now in step 2.9 in phase 1.2
 public:
     WAIT_WU()  {
         totalTime = 0;
     }
     bool enqueue(Car* c)
     {
-        bool ok = LinkedQueue<Car*>::enqueue(c);   // asks the inherited linked queue part to add the car and if yes or no it will be returned in ok
+        LinkedQueue<Car*>::enqueue(c);   // asks the inherited linked queue part to add the car 
 
-        if (ok)
-            totalTime += c->GetWUTime();           ///GetWUTime() to get the service time of each car will be implemented later on in phase 2
 
-        return ok;
+        totalTime += serviceTime;
+
+
+        return true;
     }
 
     bool dequeue(Car*& c) {
-        bool ok = LinkedQueue<Car*>::dequeue(c);
-        if (ok)
-            totalTime -= c->GetWUTime();
+        if (isEmpty())
+            return false;
 
-        return ok;
+        LinkedQueue<Car*>::dequeue(c);   
+        totalTime -= serviceTime;
+        return true;
     }
     int  GetTotalServiceTime() const
     {
