@@ -46,7 +46,8 @@ public:
 
 
 	int getNextServTime();
-	void setNextServTime(int t);			////zeyad
+	void setNextServTime(int t);	////zeyad
+	void setCT(int ct);  //// Jana 
 
 };
 ostream& operator<<(ostream& out, Car* c);

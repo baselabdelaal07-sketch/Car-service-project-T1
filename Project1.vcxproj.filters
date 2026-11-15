@@ -60,6 +60,24 @@
     <ClInclude Include="InServ_cars.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Center.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ERLY_LIST.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IDLE_LIST.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LATE_LIST.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DiagStage.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp">
@@ -71,7 +89,10 @@
     <ClCompile Include="Bay.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="InServ_cars.cpp">
+    <ClCompile Include="UI.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DiagStage.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
