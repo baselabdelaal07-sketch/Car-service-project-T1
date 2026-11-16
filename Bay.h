@@ -1,13 +1,13 @@
 #pragma once
-enum class BayType { DIAG, MECH, ELEC, WASH };  // We made a class so we can distinguish bet bay types which we have.
+enum class BayType { DIAG, MECH, ELEC, WASH };  // lists of choices for the type of bay
 class Bay
 {
-protected:
+protected:         //notice that derived clasess - DiagBay, MechBay, ElecBay, WashBay - can access these variables
     int ID;         // Bay no 
     BayType type;   // Diag-Mech-Elec-Wash 
     int capacity;   // max cars inside at the same time
     int inUse;      // cars inside right now
-    int busyTime;   // timesteps with at least one car 
+    int busyTime;   // timesteps with at least one car // how many time steps the bay had a car in it 
 public:
     Bay(int id, BayType t, int cap = 1);   
     virtual ~Bay() {}
@@ -16,7 +16,7 @@ public:
     BayType getType() const;
     int getCapacity() const;
     int getInUse() const;
-    int getRemainingCapacity() const;
+    int getRemainingCapacity() const; // returns capacity - inUse
     bool isFree() const;        // checks if it can accept at least one more car  
     bool isEmpty() const;       // no car inside __ ie checks if it is emty 
 
@@ -26,7 +26,7 @@ public:
     void addBusyTime(int t);
     int getBusyTime() const;
 
-    virtual char getPrefix() const = 0;   // 'D', 'M', 'E', 'W'
+    virtual char getPrefix() const = 0;   // 'D', 'M', 'E', 'W'__ pure virtual since the bay cant create one of it own , ie you cant create a plain Bay
     virtual void print() const;           // prints e.g. D4
 
 

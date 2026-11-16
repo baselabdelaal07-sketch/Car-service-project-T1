@@ -145,6 +145,7 @@
     <ClInclude Include="Center.h" />
     <ClInclude Include="DiagStage.h" />
     <ClInclude Include="ERLY_LIST.h" />
+    <ClInclude Include="FreeWUBays.h" />
     <ClInclude Include="IDLE_LIST.h" />
     <ClInclude Include="InServ_cars.h" />
     <ClInclude Include="LATE_LIST.h" />

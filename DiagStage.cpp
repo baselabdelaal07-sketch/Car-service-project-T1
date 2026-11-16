@@ -7,7 +7,7 @@ void DiagStage::AssignCarsToDiagnosis(int now,
     LinkedQueue<Bay*>& Free_D,
     priQueue<Car*>& DIAG_Cars)
 {
-    // "if there is no car/bay to pick, move to the next part of the algorithm"
+    // As long as there are free diagnosis bays and cars waiting for diagnosis, keep looping.
     while (!REDY.isEmpty() && !Free_D.isEmpty())
     {
         Car* c = nullptr;
@@ -15,7 +15,7 @@ void DiagStage::AssignCarsToDiagnosis(int now,
         REDY.dequeue(c);
         Free_D.dequeue(b);
 
-        b->occupy();
+        b->occupy();          // the bay is now occupied by a car - inuse++
         c->setBay(b);                         // the car points to its bay
         c->setCarStatus(CarStatus::DIAG);
         DIAG_Cars.enqueue(c, -(now + DIAG_STEPS));   // negative: earliest finish is served first

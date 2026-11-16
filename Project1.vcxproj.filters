@@ -78,6 +78,9 @@
     <ClInclude Include="DiagStage.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="FreeWUBays.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp">
